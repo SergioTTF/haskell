@@ -1,0 +1,2 @@
+# haskell
+Simple haskell activities.
