@@ -58,6 +58,7 @@ returnBook (a:z) p l
         | fst a == p && snd a == l = z
         | otherwise = a : returnBook z p l
 
-
---*member :: [Int] -> Int -> Bool
---member []
+--Not working
+member :: [Int] -> Int -> Bool
+member [] _ = False
+member l n = [x | x <- l, x == n] /= []
