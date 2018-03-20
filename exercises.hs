@@ -58,7 +58,20 @@ returnBook (a:z) p l
         | fst a == p && snd a == l = z
         | otherwise = a : returnBook z p l
 
---Not working
 member :: [Int] -> Int -> Bool
-member [] _ = False
 member l n = [x | x <- l, x == n] /= []
+
+books2 :: DataBase -> Person -> [Book]
+books2 d p = [snd x | x <- d,fst x == p]
+
+rents2 :: DataBase -> Book -> [Person]
+rents2 d b = [fst x | x <- d, snd x == b]
+
+rented2 :: DataBase -> Book -> Bool
+rented2 d b = [x | x <- d, snd x == b] /= []
+
+rentsNumber2 :: DataBase -> Person -> Int
+rentsNumber2  d p = sum [1 | x <- d, fst x == p]
+
+returnBook2 :: DataBase -> Person -> Book -> DataBase
+returnBook2 d p b = [x | x <- d, x /= (p,b)]
