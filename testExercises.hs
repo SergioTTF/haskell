@@ -15,3 +15,9 @@ fibonacci n = fibonacci (n-1) + fibonacci (n-2)
 subseq :: [a] -> [[a]]
 subseq [] = [[]]
 subseq (x:xs) = [ x:ys | ys <- subseq xs ] ++ subseq  xs
+
+qSort :: [Int] -> [Int]
+qSort [] = []
+qSort (x:xs) = qSort small ++ (x : qSort large)
+    where small = [y | y <- xs, y <= x]
+          large = [y | y <- xs, y > x]
