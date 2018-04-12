@@ -12,6 +12,6 @@ fibonacci 1 = 1
 fibonacci 2 = 1
 fibonacci n = fibonacci (n-1) + fibonacci (n-2)
 
-subseq :: [Int] -> [[Int]]
+subseq :: [a] -> [[a]]
 subseq [] = [[]]
-subseq [a] = [[a]]
+subseq (x:xs) = [ x:ys | ys <- subseq xs ] ++ subseq  xs
