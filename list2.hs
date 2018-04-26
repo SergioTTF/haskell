@@ -60,4 +60,4 @@ sameDate (x:xs) d
         | otherwise = sameDate xs d
 
 printMonth :: WeekDay -> [(Int, WeekDay)]
-printMonth d = [(x, y) | x <- [1..30], y <- [d..]]
+printMonth d = [([1..30]!!i, [Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday]!!((fromEnum d + i) `mod` 7)) | i <- [0..29]]
